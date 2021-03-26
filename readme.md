@@ -1,25 +1,11 @@
-# WSL
-## Linux subsystem for windows
-## links: 
-Following instructions are for ubuntu wsl installation  
-https://docs.microsoft.com/en-us/windows/wsl/install-win10  
-https://blogs.msdn.microsoft.com/commandline/2018/02/07/automatically-configuring-wsl/
 
-
-manual option: https://docs.microsoft.com/en-us/windows/wsl/install-manual    
-disable windows path: https://gist.github.com/ilbunilcho/4280bd55a10cefef75e74986b6bff936  
-
-### test:  
-win+r > wsl [enter]
-
-----------------
+---
 
 # terraform
 ## Use Infrastructure as Code to provision and manage any cloud, infrastructure, or service
 ## links:
 https://www.terraform.io/downloads.html  
 https://releases.hashicorp.com/terraform/  
-https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip
 	
 ## instructions:
 ```
@@ -31,10 +17,10 @@ sudo mkdir -p /tools/${app}
 sudo cp ${app} /tools/${app}/${app}_${version}  
 sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}  
 ```
-### test:  
+### Test:  
 `terraform version`  
 
-------------------------------------------------------------------------------------------
+---
 
 # vault
 ## Manage Secrets and Protect Sensitive Data
@@ -114,16 +100,6 @@ sudo ln -sfn /tools/${app}/bin/${app} /usr/local/bin/${app}
 
 ------------------------------------------------------------------------------------------
 
-# git
-## Git SCM
-## instructions:  
-`apt-get install git`  
-## test: 
-`git --version`
-
-
-------------------------------------------------------------------------------------------
-
 # Google tools: gcloud, kubectl, gsutil
 ## Gcloud command-line tool
 ## links:
@@ -192,42 +168,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ## Faster way to switch between clusters and namespaces in kubectl 
 ## links:
 https://github.com/ahmetb/kubectx  
-```
-git clone -n https://github.com/ahmetb/kubectx.git --depth 1
-cd kubectx
-git checkout HEAD completion
-app="kubectx"
-sudo cp completion/*.zsh /usr/local/bin/
-sudo chmod +x /usr/local/bin/*.zsh
-```
-
-## OHmyZSH
-```
-app="kubectx"
-mkdir -p ~/.oh-my-zsh/completions
-chmod -R 755 ~/.oh-my-zsh/completions
-ln -sfn /usr/local/bin/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
-ln -sfn /usr/local/bin/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
-cat << FOE >> ~/.zshrc
-
-#kubectx and kubens
-autoload -U compinit && compinit
-FOE
-```
-
-## BASH
-```sudo apt-get install pkg-config -y
-git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
-COMPDIR=$(pkg-config --variable=completionsdir bash-completion)
-ln -sf ~/.kubectx/completion/kubens.bash $COMPDIR/kubens
-ln -sf ~/.kubectx/completion/kubectx.bash $COMPDIR/kubectx
-cat << FOE >> ~/.bashrc
-
-
-#kubectx and kubens
-export PATH=~/.kubectx:\$PATH
-FOE
-```
 
 ## test:
 ```
@@ -271,7 +211,6 @@ FOE
 
 ------------------------------------------------------------------------------------------
 
-
 # stern
 
 ## Stern allows you to tail multiple pods on Kubernetes and multiple containers within the pod
@@ -292,8 +231,6 @@ sudo ln -sfn /tools/${app}/${app}_${version} /usr/local/bin/${app}
 
 ## test: 
 `stern -v`
-
-
 ---------------------------------
 
 # kube-ps1
@@ -347,6 +284,4 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=jabacch
 
 
 ### to do
-- add kubectl cert manager
-https://cert-manager.io/next-docs/usage/kubectl-plugin/#renew
 - Add krew to install plugins for kubectl
